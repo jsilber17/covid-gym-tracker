@@ -4,21 +4,39 @@ import time
 from datetime import datetime
 from postgres_class import PostgresMonster 
 
-def request_page(url): 
+def request_page(url):
+    """Request a webpage.
 
+    Keyword arguments: 
+    url -- the url of the webpage requested 
+
+    Returns: 
+    page -- the text (HTML)  of the page requested
+    """ 
     page = r.get(url).text 
     return page 
 
-def scrape(page_text): 
+def scrape(page_text):
+    """Scrape the webpage text for number of Golden climbers.
 
+    Keyword arguments: 
+    page_text -- The text of the webpage requested
+
+    Returns: 
+    num_climbers - int that represents the number of climbers. 
+    """ 
     page_str = str(page_text).split()
+    
     for idx, string in enumerate(page_str): 
         if string == "'GOL'":
             num_climbers = int(page_str[idx + 8].replace(',', '')) 
             return num_climbers
 
 def main(): 
-    
+    """Tracks changes in number of climbers at EarthTreks.
+       Scrapes data from EarthTreks webpage & INSERTS INTO Postgres DB
+       For now, runs on an infinite loop
+    """ 
     report_num = 0
     
     while True:
