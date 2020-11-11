@@ -55,7 +55,10 @@ class PostgresMonster(object):
         """ 
         
         self.cursor.execute(query_string)
-        self.connection.commit() 
+        self.connection.commit()
+        
+        self.cursor.close() 
+        self.connection.close() 
         
         return 'Insert query {} has been committed'.format(query_string)
 
