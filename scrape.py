@@ -23,7 +23,7 @@ def scrape(page_text):
     page_text -- The text of the webpage requested
 
     Returns: 
-    num_climbers - int that represents the number of climbers. 
+    num_climbers -- int that represents the number of climbers. 
     """ 
     page_str = str(page_text).split()
     
@@ -34,8 +34,8 @@ def scrape(page_text):
 
 def main(): 
     """Tracks changes in number of climbers at EarthTreks.
-       Scrapes data from EarthTreks webpage & INSERTS INTO Postgres DB
-       For now, runs on an infinite loop
+       Scrapes data from EarthTreks webpage & INSERTS INTO Postgres DB.
+       For now, runs on an infinite loop.
     """ 
     report_num = 0
     
@@ -49,9 +49,12 @@ def main():
 
             report_num = num_climbers
            
-            pgmon = PostgresMonster(dbname='earthtreks', user='postgres', password=os.environ.get('POSTGRES_PASSWORD'),  host='localhost', port='5432')
+            pgmon = PostgresMonster(dbname='earthtreks', 
+                                    user='postgres', 
+                                    password=os.environ.get('POSTGRES_PASSWORD'),  
+                                    host='localhost', 
+                                    port='5432')
             cursor, connection = pgmon.create_cursor_and_connection()
-            
             pgmon.insert_rows('INSERT INTO earthtreks.public.time_series_golden (datetime, num_climbers) VALUES ({}, {})'.format(dt_string, report_num))
             print('{} climbers are at EarthTreks'.format(report_num))
         
