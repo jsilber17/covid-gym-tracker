@@ -1,11 +1,26 @@
 import psycopg2 as pg2
 
-class PostgresMonster(object): 
+class PostgresMonster(object):
+
+    """Class that allows for interaction with Postgres database via psycopg2
+
+    Keyword Arguments: 
+        user -- Username for Postgres database 
+        password -- Password used to login to Postgres database 
+        host -- Host for Postgres
+        port -- Port where Postgres lives 
+        dbname -- Database name on the Postgres server Python hits
+    
+    Attributes:  
+        user -- Username for Postgres database 
+        password -- Password used to login to Postgres database 
+        host -- Host for Postgres
+        port -- Port where Postgres lives 
+        dbname -- Database name on the Postgres server Python hits
+
+    """ 
 
     def __init__(self, user, password, host, port, dbname): 
-
-        """Add comments
-        """ 
         self.user = user 
         self.password = password 
         self.host = host 
@@ -14,8 +29,13 @@ class PostgresMonster(object):
 
     def create_cursor_and_connection(self): 
 
-        """Add comments 
-        """ 
+        """Create the cursor and connection used to query Postgres
+
+        Keyword Arguments: 
+            None 
+       
+       """ 
+
         self.connection = pg2.connect(user=self.user,
                                  password=self.password,
                                  host=self.host,
@@ -27,6 +47,12 @@ class PostgresMonster(object):
         return self.cursor, self.connection
 
     def insert_rows(self, query_string): 
+        """Insert rows into a Postgres table
+
+        Keyword Arguments: 
+            query_string -- SQL INSERT statement 
+        
+        """ 
         
         self.cursor.execute(query_string)
         self.connection.commit() 
