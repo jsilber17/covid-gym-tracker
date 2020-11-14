@@ -12,6 +12,7 @@ def main():
 
     report_num = 0
     led = LED(1)
+    time.sleep(10)
     
     while True:
         soup = request_page('https://portal.rockgympro.com/portal/public/dd60512aa081d8b38fff4ddbbd364a54/occupancy?&iframeid=occupancyCounter&fId=1255')
