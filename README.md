@@ -31,3 +31,6 @@ Once the docker image has been created, use this command to login to the Postgre
 8. cd to cloned repository directory and run this command to turn on the pi traffic light, scrape the gym data, and download it to the Postgres database: 
     - `python3 main.py`
 9. Voila!
+
+
+![rasp pi lit](https://github.com/jsilber17/covid-gym-tracker/blob/master/rasp_pi_lit.jpg?raw=true)
