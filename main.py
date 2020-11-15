@@ -20,7 +20,7 @@ def main():
         None
     """ 
     
-    report_num = 0 # Initialize # climbers to zero 
+    report_num = -1 # Initialize # climbers to zero 
     led = LED(1) # Initialize LED to 1 where no light exists  
     time.sleep(10) # Allow time for internet to boot before scraping 
     
@@ -47,10 +47,10 @@ def main():
             if percent_full <= 0.45: 
                 led = LED(11)
                 led.on()
-            elif percent_full > 0.45 and report_num <= 0.667: 
+            elif percent_full > 0.45 and report_num <= 0.90: 
                 led = LED(10)
                 led.on()
-            elif percent_full > 0.667:  
+            elif percent_full > 0.90:  
                 led = LED(9)
                 led.on()
             else: 
