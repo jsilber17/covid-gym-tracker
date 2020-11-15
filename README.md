@@ -1,7 +1,7 @@
-6# Tracking Number of People at Golden Earthtreks Climibing Gym
+## Tracking Number of People at Golden Earthtreks Climibing Gym
 My attempt at tracking the number of people currently in my gym to avoid large crowds.
 
-## Requirements
+### Requirements
   - Python3 
   - Docker
   - Raspberry Pi 4
