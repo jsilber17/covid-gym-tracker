@@ -40,14 +40,13 @@ def main():
 
             report_num = num_climbers
             percent_full = round(report_num / capacity, 2)
-
             led = led.close()
 
             # Turning on the LED light 
             if percent_full <= 0.45: 
                 led = LED(11)
                 led.on()
-            elif percent_full > 0.45 and report_num <= 0.90: 
+            elif percent_full > 0.45 and percent_full <= 0.90: 
                 led = LED(10)
                 led.on()
             elif percent_full > 0.90:  
