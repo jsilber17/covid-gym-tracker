@@ -26,7 +26,7 @@ def main():
     
     while True:
         try:     
-            # Scraping Golde webpage and requesting HTML 
+            # Scraping Golden webpage and requesting HTML 
             soup = request_page('https://portal.rockgympro.com/portal/public/dd6' \
                              '0512aa081d8b38fff4ddbbd364a54/occupancy?&ifram' \
                              'eid=occupancyCounter&fId=1255')
